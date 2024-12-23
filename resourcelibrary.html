@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Library</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0056d6;
+            padding: 15px 30px;
+        }
+
+        .navbar .logo img {
+            width: 50px;
+            height: auto;
+        }
+
+        .navbar .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .navbar .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 8px 15px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .navbar .nav-links a:hover {
+            background-color: #003e9e;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 50px 20px;
+            background-color: #1d3557;
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+        }
+
+        /* Search and Filter Section */
+        .search-filter {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px;
+            align-items: center;
+        }
+
+        .search-bar {
+            width: 70%;
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .filter-dropdown {
+            padding: 10px;
+            font-size: 1rem;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background-color: #0056d6;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #003e9e;
+        }
+
+        /* Featured Resources Section */
+        .featured-resources {
+            padding: 50px 20px;
+        }
+
+        .featured-resources h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1d3557;
+        }
+
+        .resource-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .resource-card {
+            background-color: white;
+            padding: 25px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .resource-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .resource-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .resource-card p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .resource-card a {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #0056d6;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .resource-card a:hover {
+            background-color: #003e9e;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Downloadable Resources Section */
+        .download-section {
+            padding: 50px 20px;
+            background-color: #eaeaea;
+        }
+
+        .download-section .resource-list {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .resource-item {
+            background-color: white;
+            padding: 25px;
+            width: 300px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        /* Video Tutorials Section */
+        .video-tutorials {
+            padding: 50px 20px;
+        }
+
+        .video-tutorials .video-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .video-item {
+            width: 300px;
+            text-align: center;
+        }
+
+        .video-item video {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* AI Recommendation Section */
+        .ai-recommendation {
+            padding: 50px 20px;
+            background-color: #f4f4f9;
+        }
+
+        /* Footer */
+        footer {
+            padding: 25px;
+            background-color: #333;
+            color: white;
+            text-align: center;
+        }
+
+        footer .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+        footer .footer-links li {
+            display: inline;
+            margin: 0 20px;
+        }
+
+        footer .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+        }
+
+        footer .footer-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 800px) {
+            .contact-inputs {
+                width: 80vw;
+            }
+
+            .contact-right {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header class="navbar">
+        <a href="home.html" class="logo">
+            <img src="https://media.istockphoto.com/id/1250007150/vector/emotional-intelligence-coaching-icon-teacher-sign-coach-symbol.jpg?s=612x612&w=0&k=20&c=UzOnbibU6V-Ldg9TT8uIEaQJuKukCKzeijrZ2JCYse0=" alt="Career Planning Logo">
+        </a>
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="mentorship.html">Mentorship</a></li>
+            <li><a href="resources.html" class="active">Resources</a></li>
+            <li><a href="content.html">Contact</a></li>
+        </ul>
+    </header>
+
+    <!-- Search and Filter Section -->
+    <header class="header">
+        <h1>Resource Library</h1>
+        <div class="search-filter">
+            <input type="text" id="search-bar" placeholder="Search Resources..." class="search-bar">
+            <select id="filter-dropdown" class="filter-dropdown">
+                <option value="all">All</option>
+                <option value="career-guides">Career Guides</option>
+                <option value="videos">Videos</option>
+                <option value="templates">Templates</option>
+                <option value="interview-tips">Interview Tips</option>
+            </select>
+            <button class="btn" onclick="filterResources()">Filter</button>
+        </div>
+    </header>
+
+    <!-- Featured Resources Section -->
+    <section class="featured-resources">
+        <h2>Featured Resources</h2>
+        <div class="resource-container">
+            <div class="resource-card">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZvTHxQh-irUf-ly0NlkTFwPSLg-XYG9GL6Q&s" alt="Career Guide">
+                <h3>Top 10 Career Guides</h3>
+                <p>A curated guide to boost your career journey.</p>
+                <a href="https://www.sdseed.in/docs/Career%20Handbook.pdf" class="btn">Download</a>
+            </div>
+            <div class="resource-card">
+                <img src="https://www.thehrdigest.com/wp-content/uploads/2020/04/interview-tips-768x564.jpg" alt="Interview Tips">
+                <h3>Master Your Interviews</h3>
+                <p>Pro tips for cracking your dream job interviews.</p>
+                <a href="https://www.csuci.edu/careerdevelopment/services/documents/interviewhandbook.pdf" class="btn">Read More</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Downloadable Resources Section -->
+    <section class="download-section">
+        <h2>Downloadable Resources</h2>
+        <div class="resource-list">
+            <div class="resource-item">
+                <h3>Career Guide</h3>
+                <p>Comprehensive career advice and roadmap.</p>
+                <a href="https://www.wbmdfc.org/public/images/Publication/Docs/Career%20Book%20FInal_1694431516.pdf" download class="btn">Download</a>
+            </div>
+            <div class="resource-item">
+                <h3>Resume Templates</h3>
+                <p>Professional templates to boost your CV.</p>
+                <a href="https://resumekraft.com/resume-samples/?gad_source=1&gclid=Cj0KCQiAx9q6BhCDARIsACwUxu4Cul1ga05lqv5IwguLhmautfX7U1gWTUI87xKLH5E1Bg2UFM4Jz70aAoFfEALw_wcB" download class="btn">Download</a>
+            </div>
+        </div>
+        <section class="video-tutorials">
+            <h2>Video Tutorials</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/Tt08KmFfIYQ?si=5hKXwRUFBfq1HXqn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>Resume Writing Tips</h3>
+                </div>
+                <div class="video-item">
+                    <iframe width="300" height="200" src="https://www.youtube.com/embed/HG68Ymazo18?si=2eZ8yzOw1Q1CLz_3" title="YouTube video player" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h3>Interview Preparation</h3>
+                </div>
+            </div>
+        </section>
+        
+
+    <!-- AI-Powered Resource Recommendation Section -->
+    <section class="ai-recommendation">
+        <h2>Recommended for You</h2>
+        <div class="resource-card">
+            <img src="https://www.simplilearn.com/ice9/free_resources_article_thumb/how_to_become_a_data_scientist.jpg" alt="Data Science">
+            <h3>Data Science Career Path</h3>
+            <p>A comprehensive guide for aspiring data scientists.</p>
+            <a href="path/to/local/pdf.pdf" class="btn">Read More</a>
+        </div>
+    </section>
+   
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 Resource Library. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // Function to filter resources based on dropdown selection and search text
+// Function to filter resources based on search text and selected filter category
+function filterResources() {
+    let searchText = document.getElementById("search-bar").value.toLowerCase(); // Get search text
+    let filterCategory = document.getElementById("filter-dropdown").value; // Get selected category
+    let resourceCards = document.querySelectorAll(".resource-card, .resource-item"); // All resource cards
+
+    // Loop through all resource cards and filter them based on search text and category
+    resourceCards.forEach(card => {
+        let title = card.querySelector("h3").textContent.toLowerCase(); // Resource title
+        let categoryMatch = filterCategory === "all" || card.classList.contains(filterCategory); // Check category
+
+        // Check if the title matches the search text and category matches
+        if (title.includes(searchText) && categoryMatch) {
+            card.style.display = "block"; // Show card if matched
+        } else {
+            card.style.display = "none"; // Hide card if not matched
+        }
+    });
+}
+
+// Function to recommend resources (AI-based, can be extended for actual AI logic)
+function recommendResources() {
+    const recommendedResource = {
+        title: "Data Science Career Path",
+        description: "A comprehensive guide for aspiring data scientists.",
+        link: "data-science-guide.pdf",
+        img: "data-science.jpg"
+    };
+
+    const recommendationSection = document.querySelector(".ai-recommendation");
+    recommendationSection.innerHTML = `
+        <h2>Recommended for You</h2>
+        <div class="resource-card">
+            <img src="${recommendedResource.img}" alt="${recommendedResource.title}">
+            <h3>${recommendedResource.title}</h3>
+            <p>${recommendedResource.description}</p>
+            <a href="${recommendedResource.link}" class="btn">Read More</a>
+        </div>
+    `;
+}
+
+// Call recommendResources on page load
+window.onload = function() {
+    recommendResources();
+};
+
+// Additional: Trigger filterResources when user types in the search bar (optional)
+document.getElementById("search-bar").addEventListener("input", function() {
+    filterResources(); // Call filter function whenever user types
+});
+
+
+    </script>
+</script>
+</body>
+</html>

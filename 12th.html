@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Career Options</title>
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        .a{
+            background-color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #4caf50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dropdown Styles */
+        .dropdown-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Options Section */
+        #optionsContainer {
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 2px solid #4caf50;
+        }
+
+        .placeholder {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+
+        h3 {
+            color: #4caf50;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="a">
+        <h1>Explore Career Options After 12th</h1></div>
+    </header>
+    <main class="container">
+        <section>
+            <p>Select a stream below to explore your career options:</p>
+            <div class="dropdown-container">
+                <select id="streamSelect" onchange="showOptions()">
+                    <option value="">-- Select Stream --</option>
+                    <option value="science">Science</option>
+                    <option value="commerce">Commerce</option>
+                    <option value="arts">Arts</option>
+                    <option value="common">Common</option>
+                </select>
+            </div>
+        </section>
+        <section id="optionsContainer">
+            <p class="placeholder">Career options will appear here when you select a stream.</p>
+        </section>
+    </main>
+    <footer>
+        <p>Designed for students exploring career opportunities | © 2024</p>
+    </footer>
+    <script>
+        // Career options data
+        const careerOptions = {
+            science: {
+                "Medical (PCB)": [
+                    "MBBS (Bachelor of Medicine & Bachelor of Surgery)",
+                    "BDS (Bachelor of Dental Surgery)",
+                    "BAMS (Ayurvedic Medicine)",
+                    "BHMS (Homeopathy)",
+                    "Pharmacy (B.Pharm)",
+                    "Biotechnology",
+                    "B.Sc. in Microbiology/Genetics/Biochemistry",
+                    "Nursing (B.Sc. Nursing)",
+                    "Paramedical Courses (Radiology, Physiotherapy, etc.)"
+                ],
+                "Engineering (PCM)": [
+                    "B.Tech/B.E. (Engineering in various fields like Computer Science, Mechanical, Civil, etc.)",
+                    "B.Arch (Architecture)",
+                    "Aerospace or Robotics Engineering",
+                    "Integrated M.Sc. in Science Disciplines"
+                ],
+                "Other Options": [
+                    "B.Sc. (Physics, Chemistry, Math, etc.)",
+                    "Pilot Training (Aviation)",
+                    "Data Science and AI courses",
+                    "Actuarial Science",
+                    "Defense (NDA Exam)"
+                ]
+            },
+            commerce: {
+                "Professional Courses": [
+                    "Chartered Accountancy (CA)",
+                    "Company Secretary (CS)",
+                    "Cost and Management Accounting (CMA)"
+                ],
+                "Undergraduate Degrees": [
+                    "B.Com (Bachelor of Commerce)",
+                    "BBA (Bachelor of Business Administration)",
+                    "BMS (Bachelor of Management Studies)",
+                    "Economics (B.A. Economics)",
+                    "Banking and Insurance",
+                    "Hotel Management"
+                ],
+                "Specialized Careers": [
+                    "Digital Marketing",
+                    "Finance Analyst",
+                    "Investment Banking"
+                ]
+            },
+            arts: {
+                "Creative Fields": [
+                    "Bachelor of Fine Arts (BFA)",
+                    "Fashion Designing",
+                    "Interior Designing",
+                    "Animation and Multimedia"
+                ],
+                "Media & Communication": [
+                    "Journalism and Mass Communication",
+                    "Film Making",
+                    "Photography"
+                ],
+                "Social Sciences": [
+                    "B.A. in History, Political Science, Sociology, etc.",
+                    "Psychology",
+                    "Social Work"
+                ],
+                "Law": [
+                    "Integrated Law (B.A. LLB, B.Com LLB, etc.)"
+                ]
+            },
+            common: [
+                "Hotel Management",
+                "Event Management",
+                "Travel & Tourism",
+                "Linguistics and Foreign Languages",
+                "Bachelor of Computer Applications (BCA)",
+                "Animation and Game Designing"
+            ]
+        };
+
+        // Function to display career options
+        function showOptions() {
+            const stream = document.getElementById("streamSelect").value;
+            const optionsContainer = document.getElementById("optionsContainer");
+            optionsContainer.innerHTML = ""; // Clear existing content
+
+            if (stream && careerOptions[stream]) {
+                if (typeof careerOptions[stream] === "object" && !Array.isArray(careerOptions[stream])) {
+                    for (const [category, options] of Object.entries(careerOptions[stream])) {
+                        const section = document.createElement("div");
+                        section.innerHTML = <h3>${category}</h3>;
+                        const list = document.createElement("ul");
+                        options.forEach(option => {
+                            const listItem = document.createElement("li");
+                            listItem.textContent = option;
+                            list.appendChild(listItem);
+                        });
+                        section.appendChild(list);
+                        optionsContainer.appendChild(section);
+                    }
+                } else {
+                    const list = document.createElement("ul");
+                    careerOptions[stream].forEach(option => {
+                        const listItem = document.createElement("li");
+                        listItem.textContent = option;
+                        list.appendChild(listItem);
+                    });
+                    optionsContainer.appendChild(list);
+                }
+            } else {
+                optionsContainer.innerHTML = "<p class='placeholder'>Please select a valid stream to view career options.</p>";
+            }
+        }
+    </script>
+</body>
+</html>

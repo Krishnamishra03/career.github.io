@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 900px;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            border-bottom: 2px solid #f1f1f1;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 16px;
+        }
+
+        .contact-info i {
+            color: #0D1B2A;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin: 20px 0 10px;
+            color: #0D1B2A;
+        }
+
+        .section-content {
+            margin-bottom: 20px;
+        }
+
+        .skills-list, .experience-list, .education-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .skills-list li, .experience-list li, .education-list li {
+            margin-bottom: 10px;
+        }
+
+        .skills-list li {
+            font-weight: bold;
+        }
+
+        .button {
+            background-color: #F59E0B;
+            padding: 10px 20px;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button:hover {
+            background-color: #FBBF24;
+        }
+
+        .icon {
+            font-size: 16px;
+        }
+
+        .download-button {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Header Section -->
+    <header>
+        <h1>John Doe</h1>
+        <p>Full Stack Developer | Web Designer | JavaScript Enthusiast</p>
+        <div class="contact-info">
+            <div><i class="fas fa-phone icon"></i> +1 234 567 890</div>
+            <div><i class="fas fa-envelope icon"></i> john.doe@email.com</div>
+            <div><i class="fas fa-map-marker-alt icon"></i> New York, USA</div>
+        </div>
+    </header>
+
+    <!-- Skills Section -->
+    <div class="section-title">Skills</div>
+    <div class="section-content">
+        <ul class="skills-list">
+            <li>JavaScript</li>
+            <li>HTML5 & CSS3</li>
+            <li>React.js</li>
+            <li>Node.js</li>
+            <li>MongoDB</li>
+            <li>Version Control (Git)</li>
+            <li>UI/UX Design</li>
+        </ul>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="section-title">Work Experience</div>
+    <div class="section-content">
+        <ul class="experience-list">
+            <li>
+                <strong>Full Stack Developer | ABC Company</strong> (2021 - Present)
+                <p>Developed and maintained web applications using JavaScript, Node.js, and React. Led a team of developers to create user-friendly web solutions and ensured responsive design for mobile users.</p>
+            </li>
+            <li>
+                <strong>Front-End Developer | XYZ Solutions</strong> (2019 - 2021)
+                <p>Worked on building the user interface of websites using HTML, CSS, and JavaScript. Collaborated with backend developers to integrate APIs and improve overall user experience.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Education Section -->
+    <div class="section-title">Education</div>
+    <div class="section-content">
+        <ul class="education-list">
+            <li>
+                <strong>Bachelor's in Computer Science</strong>, University of Tech (2015 - 2019)
+                <p>Graduated with honors, focusing on web development and database management.</p>
+            </li>
+            <li>
+                <strong>High School Diploma</strong>, ABC High School (2011 - 2015)
+                <p>Graduated with a focus on science and technology, receiving awards in programming competitions.</p>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Download Resume Button -->
+    <div class="download-button">
+        <button class="button" onclick="downloadResume()">Download Resume</button>
+    </div>
+
+</div>
+
+<!-- JavaScript to download Resume as PDF -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+    function downloadResume() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(18);
+        doc.text("John Doe", 20, 20);
+        doc.setFontSize(12);
+        doc.text("Full Stack Developer | Web Designer | JavaScript Enthusiast", 20, 30);
+
+        doc.text("Contact Information", 20, 50);
+        doc.text("Phone: +1 234 567 890", 20, 60);
+        doc.text("Email: john.doe@email.com", 20, 70);
+        doc.text("Location: New York, USA", 20, 80);
+
+        doc.text("Skills", 20, 100);
+        doc.text("JavaScript, HTML5 & CSS3, React.js, Node.js, MongoDB, Git, UI/UX Design", 20, 110);
+
+        doc.text("Work Experience", 20, 130);
+        doc.text("Full Stack Developer | ABC Company (2021 - Present)", 20, 140);
+        doc.text("Developed and maintained web applications using JavaScript, Node.js, and React.", 20, 150);
+
+        doc.text("Front-End Developer | XYZ Solutions (2019 - 2021)", 20, 160);
+        doc.text("Built the user interface of websites using HTML, CSS, and JavaScript.", 20, 170);
+
+        doc.text("Education", 20, 190);
+        doc.text("Bachelor's in Computer Science, University of Tech (2015 - 2019)", 20, 200);
+        doc.text("High School Diploma, ABC High School (2011 - 2015)", 20, 210);
+
+        doc.save("John_Doe_Resume.pdf");
+    }
+</script>
+
+</body>
+</html>

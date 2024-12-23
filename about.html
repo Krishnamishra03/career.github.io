@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #0D1B2A;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar .logo img {
+            width: 150px;
+            height: auto;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style-type: none;
+        }
+
+        .navbar .nav-links li {
+            padding: 5px;
+        }
+
+        .navbar .nav-links li a {
+            color: white;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .navbar .nav-links li a:hover {
+            color: #F59E0B;
+        }
+
+        .navbar .signup-btn {
+            background-color: #F59E0B;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .navbar .signup-btn:hover {
+            background-color: #FBBF24;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .menu-toggle .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        /* Mobile Menu Active State */
+        .navbar .nav-links.active {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background-color: #0D1B2A;
+            width: 100%;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar .nav-links li {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .navbar .nav-links li a {
+            color: white;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+        }
+
+        .navbar .nav-links li a:hover {
+            background-color: #F59E0B;
+            border-radius: 5px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 768px) {
+            .navbar .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .navbar .menu-toggle {
+                display: flex;
+            }
+
+            .navbar .nav-links.active {
+                display: flex;
+            }
+        }
+
+        /* Content Section Styles */
+        .first {
+            position: relative;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+
+        .first img {
+            width: 100%;
+            height: auto;
+        }
+
+        .second h1 {
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 36px;
+        }
+
+        .third h1 {
+            font-size: 28px;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .third h3 {
+            font-size: 18px;
+            color: #555;
+        }
+
+        .section h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-top: 40px;
+        }
+
+        .services {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .service {
+            width: 22%;
+            padding: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .service h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .multimedia {
+            background-color: #f4f4f4;
+            padding: 40px 20px;
+        }
+
+        .multimedia h1 {
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .multimedia-elements {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .multimedia-elements div {
+            width: 45%;
+            text-align: center;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .container h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-top: 40px;
+        }
+
+        .card {
+            width: 45%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .card h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .quick-links h1 {
+            text-align: center;
+            font-size: 32px;
+            margin-top: 40px;
+        }
+
+        .quick-links h3 {
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .quick-links a {
+            color: #0D1B2A;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .quick-links a:hover {
+            color: #F59E0B;
+        }
+        
+    </style>
+
+</head>
+<body>
+
+<header>
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="https://media.istockphoto.com/id/1250007150/vector/emotional-intelligence-coaching-icon-teacher-sign-coach-symbol.jpg?s=612x612&w=0&k=20&c=UzOnbibU6V-Ldg9TT8uIEaQJuKukCKzeijrZ2JCYse0=" alt="Career Planning Logo">
+        </a>
+
+        <!-- Mobile Menu Toggle -->
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="job.html">Jobs</a></li>
+            <li><a href="mentorship.html">Mentorship</a></li>
+            <li><a href="content.html">Contact</a></li>
+            <!-- <li><button class="signup-btn" onclick="openSignupModal()">Sign up</button></li> -->
+        </ul>
+    </nav>
+</header>
+
+<!-- About Section -->
+<div class="first">
+    <img src="images.jpg" alt="About Image">
+
+    <div class="second">
+        <h1>About Us</h1>
+    </div>
+
+    <div class="third">
+        <h1>Empowering Students for Informed Career Choices</h1>
+        <h3>Our mission is to empower students with the tools, knowledge, and guidance necessary to make informed career choices that align with their interests, skills, and future aspirations.</h3>
+    </div>
+</div>
+
+<!-- Services Section -->
+<div class="section">
+    <h1>Our Services</h1>
+    <div class="services">
+        <div class="service">
+            <h3>AI-Powered Career Guidance Platforms</h3>
+            <p>Using AI algorithms to provide personalized career advice based on student profiles, interests, and current market trends.</p>
+        </div>
+        <div class="service">
+            <h3>Career Mentorship Programs</h3>
+            <p>Connecting students with industry professionals and experts to receive mentorship and advice on career development.</p>
+        </div>
+        <div class="service">
+            <h3>Comprehensive Course Catalog</h3>
+            <p>A curated list of recommended courses, certifications, and degrees to help students prepare for their chosen careers.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Multimedia Section -->
+<div class="multimedia">
+    <h1>Our Multimedia Approach</h1>
+    <div class="multimedia-elements">
+        <div>
+            <h2>Video Tutorials</h2>
+            <p>Watch expert-led video tutorials on career planning, skill development, and industry insights.</p>
+        </div>
+        <div>
+            <h2>Infographics & Guides</h2>
+            <p>Access visual guides and infographics to help you understand different career pathways and decision-making processes.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Contact Section -->
+<div class="quick-links">
+    <h1>Quick Links</h1>
+    <h3>Explore our resources:</h3>
+    <a href="https://career.ecu.edu/wp-content/pv-uploads/sites/58/2018/10/22-0200_CareerResourceGuide_FINAL_WEB.pdf">Career Resources</a>
+    <a href="#">Webinars</a>
+    <a href="https://www.sdseed.in/docs/Career%20Handbook.pdf">Downloadable Guides</a>
+    <a href="#">Contact Us</a>
+</div>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Tips</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #0D1B2A;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+
+        /* Interview Tips Section */
+        .tips-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .tip-card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 15px;
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+
+        .tip-card:hover {
+            transform: scale(1.05);
+        }
+
+        .tip-card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .tip-card p {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .tip-card button {
+            background-color: #F59E0B;
+            border: none;
+            padding: 10px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .tip-card button:hover {
+            background-color: #FBBF24;
+        }
+
+        /* Read More Section */
+        .extra-content {
+            display: none;
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        /* Download PDF Button */
+        .download-btn {
+            background-color: #0D1B2A;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            width: 200px;
+        }
+
+        .download-btn:hover {
+            background-color: #F59E0B;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0D1B2A;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Interview Tips</h1>
+</header>
+
+<!-- Interview Tips Cards -->
+<div class="tips-container">
+    <div class="tip-card">
+        <h3>Prepare Your Resume</h3>
+        <p>Ensure your resume is up-to-date, highlighting your skills and achievements relevant to the job you're applying for.</p>
+        <button onclick="toggleContent('tip1')">Read More</button>
+        <div class="extra-content" id="tip1">
+            <p>Make sure to tailor your resume for each job, emphasizing the skills and experiences that align with the job description.</p>
+        </div>
+    </div>
+
+    <div class="tip-card">
+        <h3>Research the Company</h3>
+        <p>Before your interview, take the time to learn about the company’s mission, values, and recent news.</p>
+        <button onclick="toggleContent('tip2')">Read More</button>
+        <div class="extra-content" id="tip2">
+            <p>This will help you ask insightful questions during the interview and demonstrate your genuine interest in the company.</p>
+        </div>
+    </div>
+
+    <div class="tip-card">
+        <h3>Practice Common Interview Questions</h3>
+        <p>Prepare for common interview questions like "Tell me about yourself," and "Why should we hire you?"</p>
+        <button onclick="toggleContent('tip3')">Read More</button>
+        <div class="extra-content" id="tip3">
+            <p>Rehearse your responses, but don’t memorize them. Be natural and try to show how your skills fit the role.</p>
+        </div>
+    </div>
+
+    <div class="tip-card">
+        <h3>Dress Professionally</h3>
+        <p>Your appearance plays a role in the impression you make. Dress appropriately for the role and company culture.</p>
+        <button onclick="toggleContent('tip4')">Read More</button>
+        <div class="extra-content" id="tip4">
+            <p>Even if the company has a casual dress code, it’s best to dress slightly more formal for an interview to show professionalism.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Download PDF Button -->
+<button class="download-btn" onclick="downloadPDF()">Download PDF</button>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Interview Tips. All Rights Reserved.</p>
+</footer>
+
+<!-- Include jsPDF Library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+    // Function to toggle the display of the extra content (Read More)
+    function toggleContent(id) {
+        const extraContent = document.getElementById(id);
+        if (extraContent.style.display === "none" || extraContent.style.display === "") {
+            extraContent.style.display = "block";
+        } else {
+            extraContent.style.display = "none";
+        }
+    }
+
+    // Function to download PDF
+    function downloadPDF() {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(16);
+
+        doc.text("Interview Tips", 20, 20);
+
+        // Add interview tips content to PDF
+        doc.text("1. Prepare Your Resume\nEnsure your resume is up-to-date, highlighting your skills and achievements relevant to the job you're applying for.", 20, 40);
+        doc.text("2. Research the Company\nBefore your interview, take the time to learn about the company’s mission, values, and recent news.", 20, 60);
+        doc.text("3. Practice Common Interview Questions\nPrepare for common interview questions like 'Tell me about yourself.'", 20, 80);
+        doc.text("4. Dress Professionally\nYour appearance plays a role in the impression you make. Dress appropriately.", 20, 100);
+
+        // Save the PDF file
+        doc.save("Interview_Tips.pdf");
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #333;
+    text-align: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .header {
+    background-color: #b00000;
+    color: white;
+    padding: 15px;
+    border-radius: 10px 10px 10px 10px;
+  }
+  
+  .header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  .search-bar {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .search-bar input {
+    width: 80%;
+    padding: 10px;
+    border: 2px solid #b00000;
+    border-radius: 20px 0 0 20px;
+    font-size: 1rem;
+  }
+  
+  .search-bar button {
+    background-color: #b00000;
+    border: none;
+    padding: 0 15px;
+    border-radius: 0 20px 20px 0;
+    cursor: pointer;
+  }
+  
+  .search-bar button img {
+    width: 20px;
+    height: 20px;
+  }
+  
+  main h2 {
+    margin-top: 20px;
+    font-size: 1.2rem;
+  }
+  
+  .job-buttons {
+    margin-top: 20px;
+  }
+  
+  .job-buttons button {
+    display: block;
+    width: 90%;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 10px 0;
+    background-color: #0000ff;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .job-buttons button:hover {
+    background-color: #0000cc;
+  }

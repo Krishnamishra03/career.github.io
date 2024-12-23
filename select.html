@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Class Selection</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+      margin: 0;
+    }
+    h1 {
+      color: #333;
+      font-size: 40px;
+      text-align: center;
+    }
+    .dynamic-heading {
+      font-size: 26px;
+      font-weight: bold;
+      color: #f3f3ff;
+      margin-bottom: 20px;
+      text-align: center;
+      background-color: #0b0c16;
+      padding: 10px;
+      border-radius: 8px;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .scrolling-text {
+      display: inline-block;
+      animation: scrollText 8s linear infinite;
+    }
+    @keyframes scrollText {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+ 
+    .class-select {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      
+    }
+    button {
+      padding: 15px 30px;
+      font-size: 16px;
+      background-color: #b63046;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    #info {
+      margin-top: 20px;
+      padding: 20px;
+      font-size: 18px;
+      color: #610b6d;
+      max-width: 500px;
+      text-align: center;
+      background-color: #d6a8aa;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+
+ 
+
+
+  <h1>Welcome to the Student Stream Selection</h1>
+  <div class="dynamic-heading" id="dynamic-heading">Choose Your stream </div>
+  <div class="dynamic-heading">
+    <span id="dynamic-heading-text" class="scrolling-text">Please select your class and stream</span>
+  </div>
+  <div class="class-select">
+
+   <div class="q">
+   
+    <button onclick=" showInfo('9th')"> Class 9</button>
+  </div>
+    <button onclick="window.open('10th.html')">Class 10</button>
+    <button onclick="window.open('12th.html')">Class 12</button>
+    <button onclick="showInfo('12th')">Class 11</button>
+    <button onclick="window.open('UG.html')">Undergraduate</button>
+    <button onclick="window.open('post.html')">Postgraduate</button>
+  </div>
+
+  <div id="info"></div>
+
+  <script>
+    function showInfo(className) {
+      let infoText, headingText;
+      switch(className) {
+        case '9th':
+          headingText = "Class 9 - Foundations";
+          infoText = "You have selected Class 9. This is an essential year for building a strong foundation in core subjects!";
+          break;
+        case '10th':
+          headingText = "Class 10 - Milestone Year";
+          infoText = "You have selected Class 10. This is a critical year with board exams. Stay focused and give it your best!";
+          break;
+        case '11th':
+          headingText = "Class 11 - Specialization Begins";
+          infoText = "You have selected Class 11. You’re now diving into specialized subjects that pave the way for future studies.";
+          break;
+        case '12th':
+          headingText = "Class 12 - The Final Step";
+          infoText = "You have selected Class 12. Your final year of school! Stay focused as you prepare for exams and college admissions.";
+          break;
+        case 'UG':
+          headingText = "Undergraduate - Explore & Grow";
+          infoText = "You have selected Undergraduate (UG). A journey of specialization in your field of choice awaits!";
+          break;
+        case 'PG':
+          headingText = "Postgraduate - Mastery Awaits";
+          infoText = "You have selected Postgraduate (PG). Time to dive deep into your field and become an expert!";
+          break;
+        default:
+          headingText = "Welcome, Student!";
+          infoText = "Please select a valid class.";
+      }
+      
+      document.getElementById("dynamic-heading").innerText = headingText;
+      document.getElementById("info").innerText = infoText;
+    }
+  </script>
+
+</body>
+</html>

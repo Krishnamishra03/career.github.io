@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Jobs</title>
+  <style>
+    /* General Styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    /* Scrolling Message */
+    .scrolling-message {
+      background-color: #f9c74f;
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    .scrolling-message h2 {
+      font-size: 1.2rem;
+      color: white;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px 20px;
+    }
+
+    .navbar .logo img {
+      width: 50px;
+      height: auto;
+    }
+
+    .navbar .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 8px 15px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .navbar .nav-links a:hover {
+      background-color: #575757;
+    }
+
+    .navbar .signup-btn {
+      background-color: #f9c74f;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .navbar .signup-btn:hover {
+      background-color: #ffb84d;
+    }
+
+    .menu-toggle {
+      display: none;
+      cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+      width: 25px;
+      height: 3px;
+      background-color: white;
+      margin: 5px 0;
+    }
+
+    .navbar .nav-links.active {
+      display: block;
+    }
+
+    /* Hero Section */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 20px;
+      background-color: #1d3557;
+      color: white;
+    }
+
+    .hero-content {
+      max-width: 500px;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Main Section */
+    main {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    main h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .job-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .job-buttons button {
+      background-color: #f9c74f;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .job-buttons button:hover {
+      background-color: #ffb84d;
+    }
+
+    /* Footer Styles */
+    footer {
+      padding: 20px;
+      background-color: #333;
+      color: white;
+      text-align: center;
+    }
+
+    footer p {
+      margin-bottom: 10px;
+    }
+
+    footer .footer-links {
+      list-style: none;
+      padding: 0;
+    }
+
+    footer .footer-links li {
+      display: inline;
+      margin: 0 10px;
+    }
+
+    footer .footer-links a {
+      color: white;
+      text-decoration: none;
+    }
+
+    footer .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Mobile Responsive Styles */
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .hero-content {
+        text-align: center;
+      }
+
+      .job-buttons {
+        flex-direction: column;
+      }
+
+      .navbar .menu-toggle {
+        display: block;
+      }
+
+      .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .navbar .nav-links.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Scrolling Message -->
+  <div class="scrolling-message">
+    <div class="sc">
+      <marquee behavior="scroll" direction="left"><h2>Explore the Best Job Opportunities for You!</h2></marquee>
+    </div>
+  </div>
+
+  <!-- Navigation Bar -->
+  <header>
+    <nav class="navbar">
+      <a href="home.html" class="logo">
+        <img src="https://media.istockphoto.com/id/1250007150/vector/emotional-intelligence-coaching-icon-teacher-sign-coach-symbol.jpg?s=612x612&w=0&k=20&c=UzOnbibU6V-Ldg9TT8uIEaQJuKukCKzeijrZ2JCYse0=" alt="Career Planning Logo">
+      </a>
+
+      <div class="menu-toggle" id="mobile-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="mentorship.html">Mentorship</a></li>
+        <li><a href="job.html">Jobs</a></li>
+        <li><a href="content.html">Contact</a></li>
+        <!-- <li><button class="signup-btn" onclick="openSignupModal()">Sign up</button></li> -->
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Search <span>Jobs</span></h1>
+      <p>Find the best job opportunities tailored to your qualifications and interests.</p>
+    </div>
+    <div class="hero-image">
+      <img src="https://media.istockphoto.com/id/1168123691/photo/business-team-meeting-in-the-office.jpg" alt="Job Search">
+    </div>
+  </section>
+
+  <!-- Main Section: Search Jobs -->
+  <main>
+    <h2>Search Jobs by Department/Sector</h2>
+    <div class="job-buttons">
+      <a href="10thjob.html"><button>10th Pass Jobs</button></a>
+      <a href="12thjob.html"><button>12th Pass Jobs</button></a>
+      <a href="UGjobs.html"><button>Undergraduate Jobs</button></a>
+      <a href="PGjobs.html"><button>Postgraduate Jobs</button></a>
+      <a href="Govermentjobs.html"><button>Government Jobs</button></a>
+      <a href=""><button>Private Jobs</button></a>
+    </div>
+  </main>
+ 
+
+  <!-- Footer Section -->
+  <footer>
+    <p>&copy; 2024 Career Planning. All Rights Reserved.</p>
+    <ul class="footer-links">
+      <li><a href="#privacy">Privacy Policy</a></li>
+      <li><a href="#terms">Terms of Service</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileMenu.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
+    // Open and Close Modal
+    function openSignupModal() {
+      document.getElementById('signupModal').style.display = 'block';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+  </script>
+</body>
+</html>

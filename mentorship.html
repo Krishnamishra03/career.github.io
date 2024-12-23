@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentorship - Career Planning</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+     <style>
+      /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* Scrolling Message */
+.scrolling-message {
+  background-color: #f9c74f;
+  padding: 10px 0;
+  text-align: center;
+}
+
+.scrolling-message h2 {
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* Navbar Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333;
+  padding: 10px 20px;
+}
+
+.navbar .logo img {
+  width: 50px;
+  height: auto;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+  padding: 8px 15px;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.navbar .nav-links a:hover {
+  background-color: #575757;
+}
+
+.navbar .signup-btn {
+  background-color: #f9c74f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.navbar .signup-btn:hover {
+  background-color: #ffb84d;
+}
+
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+}
+
+.menu-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px 0;
+}
+
+.navbar .nav-links.active {
+  display: block;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  padding: 40px 20px;
+  background-color: #1d3557;
+  color: white;
+}
+
+.hero-content {
+  max-width: 500px;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Video Gallery Section */
+.video-gallery {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f1faee;
+}
+
+.video-gallery h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.video-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.video {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 350px;
+  border-radius: 10px;
+}
+
+.video video {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.video h3 {
+  margin-top: 15px;
+  font-size: 1.1rem;
+}
+
+/* Download Section */
+.download-section {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #e63946;
+  color: white;
+}
+
+.download-section h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.download-btn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  background-color: #f1faee;
+  color: #333;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s;
+}
+
+.download-btn:hover {
+  background-color: #a8dadc;
+}
+
+/* Score Tracker Section */
+.score-tracker {
+  padding: 40px 20px;
+  background-color: #f1faee;
+  text-align: center;
+}
+
+.score-tracker h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.score-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.score-item {
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  border-radius: 10px;
+}
+
+.score-item h3 {
+  font-size: 1.1rem;
+}
+
+.progress {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 5px;
+  margin-top: 10px;
+}
+
+progress[value] {
+  width: 100%;
+  appearance: none;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 5px;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #ddd;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: #6a4c93;
+  border-radius: 5px;
+}
+
+/* Footer Styles */
+footer {
+  padding: 20px;
+  background-color: #333;
+  color: white;
+  text-align: center;
+}
+
+footer p {
+  margin-bottom: 10px;
+}
+
+footer .footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+footer .footer-links li {
+  display: inline;
+  margin: 0 10px;
+}
+
+footer .footer-links a {
+  color: white;
+  text-decoration: none;
+}
+
+footer .footer-links a:hover {
+  text-decoration: underline;
+}
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  margin: 10% auto;
+  width: 300px;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close-btn {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .hero-content {
+      text-align: center;
+  }
+
+  .video-container {
+      flex-direction: column;
+  }
+
+  .score-container {
+      flex-direction: column;
+  }
+
+  .navbar .menu-toggle {
+      display: block;
+  }
+
+  .navbar .nav-links {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+  }
+
+  .navbar .nav-links.active {
+      display: flex;
+  }
+}
+.chatbot-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.chatbot-icon img {
+  width: 35px;
+  height: 35px;
+}
+
+/* Chatbot iframe styles (initially hidden) */
+iframe.chatbot-iframe {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 350px;
+  height: 500px;
+  border: none;
+  z-index: 1000;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: none; /* Initially hidden */
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .video-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .score-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .navbar .menu-toggle {
+    display: block;
+  }
+
+  .navbar .nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 15px;
+    padding: 10px;
+    background-color: #333;
+  }
+
+  .navbar .nav-links.active {
+    display: flex;
+  }
+
+  .navbar .nav-links a {
+    font-size: 1rem;
+  }
+
+  .navbar .signup-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .video {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .video h3 {
+    font-size: 0.9rem;
+  }
+
+  .download-btn {
+    width: 100%;
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+
+  .score-item {
+    width: 90%;
+  }
+
+  .score-item h3 {
+    font-size: 1rem;
+  }
+
+  footer {
+    font-size: 0.9rem;
+  }
+
+  .chatbot-icon {
+    width: 50px;
+    height: 50px;
+  }
+
+  iframe.chatbot-iframe {
+    width: 90%;
+    height: 400px;
+    right: 5%;
+  }
+}
+     </style>
+</head>
+<body>
+    <!-- Scrolling Message -->
+    <div class="scrolling-message">
+        <div class="sc">
+            <marquee behavior="scroll" direction="left"><h2>Unlock Your Career Potential: Join Our Mentorship Program!</h2></marquee>
+        </div>
+    </div>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <a href="home.html" class="logo">
+                <img src="https://media.istockphoto.com/id/1250007150/vector/emotional-intelligence-coaching-icon-teacher-sign-coach-symbol.jpg?s=612x612&w=0&k=20&c=UzOnbibU6V-Ldg9TT8uIEaQJuKukCKzeijrZ2JCYse0=" alt="Career Planning Logo">
+            </a>
+
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                 
+                <li><a href="job.html">Jobs</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="content.html">Contact</a></li>
+                <!-- <li><button class="signup-btn" onclick="openSignupModal()">Sign up</button></li> -->
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Mentorship <span>Program</span></h1>
+            <p>Get personalized mentorship and guidance from industry experts to elevate your career!</p>
+        </div>
+        <div class="hero-image">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8xk_gjZkxoAK2fbsBi9sALSx-oj0l7H1dBA&s" alt="Mentorship Program">
+        </div>
+    </section>
+
+    <!-- Video Gallery Section -->
+    <section id="video-gallery" class="video-gallery">
+        <h2>Video Tutorials & Mentorship Insights</h2>
+        <div class="video-container">
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/MhOn5tThxCc?si=wYoxTkg6VpPdxyfb" title="YouTube video player"></iframe>
+                <h3>Sandeep Sir Motivation Video</h3>
+            </div>
+            <div class="video">
+              <iframe src="https://www.youtube.com/embed/_xLENSGFZAc?si=XmdaKkyZSa3Nd2kX" title="YouTube video player""></iframe>
+                <h3>Sandeep Sir Motivation Video</h3>
+            </div>
+            <div class="video">
+               <iframe src="https://www.youtube.com/embed/CPAhCOMhJds?si=EdsazsABh_z5Rsnk" title="YouTube video player"></iframe>
+                <h3>How to choice to career </h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download Section -->
+    <section id="download" class="download-section">
+        <h2>Download Career Resources</h2>
+        <p>Download helpful resources to boost your career progress. Click below to access the materials:</p>
+        <a href="https://afsno1sirsa.kvs.ac.in/sites/default/files/2022%20Careers%20after%20School%20Handbook.pdf" class="download-btn">Download Career Guide</a>
+        <a href="resume.html" class="download-btn">Download Resume Templates</a>
+        <a href="interview.html" class="download-btn">Download Interview Tips</a>
+    </section>
+
+    <!-- Score Tracker Section -->
+    <section id="score-tracker" class="score-tracker">
+        <h2>Your Progress Tracker</h2>
+        <p>Keep track of your mentorship progress and achievements:</p>
+        <div class="score-container">
+            <div class="score-item">
+                <h3>Current Goal: Complete Resume Workshop</h3>
+                <p>Progress: 75%</p>
+                <progress value="75" max="100"></progress>
+            </div>
+            <div class="score-item">
+                <h3>Current Goal: Complete Mock Interview</h3>
+                <p>Progress: 50%</p>
+                <progress value="50" max="100"></progress>
+            </div>
+        </div>
+      
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Career Planning. All Rights Reserved.</p>
+            <ul class="footer-links">
+                <li><a href="#privacy">Privacy Policy</a></li>
+                <li><a href="#terms">Terms of Service</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+
+   
+    <div class="chatbot-icon" onclick="toggleChatbot()">
+      <img src="https://cdn-icons-png.flaticon.com/512/4712/4712027.png" alt="Chatbot Icon">
+  </div>
+    <iframe
+        class="chatbot-iframe"
+        src="https://www.chatbase.co/chatbot-iframe/F_vrgqVJwzJ4t5tjnUjR-"
+        frameborder="0"
+    ></iframe>
+
+     
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.querySelector('.nav-links');
+        
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Open and Close Modal
+        function openSignupModal() {
+            document.getElementById('signupModal').style.display = 'block';
+        }
+        function openLoginModal() {
+            document.getElementById('loginModal').style.display = 'block';
+        }
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+        function toggleChatbot() {
+          const iframe = document.querySelector('.chatbot-iframe');
+          iframe.style.display = iframe.style.display === 'block' ? 'none' : 'block';
+      }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Courses After Post-Graduation</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background-color: #000;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 50px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1500px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 50px;
+            font-size: 40;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Dropdown */
+        .dropdown-container {
+            margin-bottom: 1800px;
+            text-align: center;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            font-size: 30px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Course Options Section */
+        #coursesContainer {
+            margin-top: 100px;
+        }
+
+        .placeholder {
+            text-align: center;
+            color: #777;
+            font-style: italic;
+        }
+
+        h3 {
+            color: #000;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        ul li:last-child {
+            border-bottom: none;
+        }
+        
+
+        /* Footer */
+        footer {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="a">
+
+        <h1>Explore Advanced Courses After Post-Graduation</h1></div>
+    </header>
+    <main class="container">
+        <p><h1>Select a field of interest to explore advanced courses and certifications:</h1></p>
+        <div class="dropdown-container">
+            <select id="fieldSelect" onchange="displayCourses()">
+                <option value="">-- Select a Field --</option>
+                <option value="science-tech">Science & Technology</option>
+                <option value="management">Management & Business</option>
+                <option value="healthcare">Healthcare & Medicine</option>
+                <option value="arts">Arts & Humanities</option>
+                <option value="research">Research & Academics</option>
+                <option value="law-governance">Law & Governance</option>
+                <option value="global">Global Opportunities</option>
+            </select>
+        </div>
+        <section id="coursesContainer">
+            <p class="placeholder">Courses will appear here when you select a field.</p>
+        </section>
+    </main>
+   <!-- <footer>
+        <p>&copy; 2024 Career Explorer | Designed to Empower Learners</p>
+    </footer>-->
+
+    <script>
+        // Data for courses
+        const courses = {
+            "science-tech": [
+                "Ph.D. in Data Science or Artificial Intelligence",
+                "Advanced Certification in Cloud Computing",
+                "Fellowship in Space Sciences (ISRO, NASA)",
+                "M.Tech in Renewable Energy",
+                "Specialization in Robotics and IoT"
+            ],
+            "management": [
+                "Executive MBA in Leadership",
+                "Chartered Financial Analyst (CFA)",
+                "Certification in Project Management (PMP)",
+                "Diploma in Digital Marketing",
+                "Supply Chain Management Certification"
+            ],
+            "healthcare": [
+                "Master’s in Public Health (MPH)",
+                "Fellowship in Cardiology or Neurology",
+                "Clinical Research and Trials Certification",
+                "Pharmacovigilance Training",
+                "MBA in Healthcare Management"
+            ],
+            "arts": [
+                "Advanced Diploma in Film Making",
+                "Certification in Creative Writing",
+                "Master’s in International Relations",
+                "Fine Arts Fellowship",
+                "Diploma in Animation & VFX"
+            ],
+            "research": [
+                "Ph.D. in Interdisciplinary Studies",
+                "Post-Doctoral Fellowship in Emerging Sciences",
+                "Educational Leadership Certification",
+                "Specialization in Instructional Design",
+                "Research Methodologies in Social Sciences"
+            ],
+            "law-governance": [
+                "LLM in Corporate or Cyber Law",
+                "Certification in Public Policy",
+                "Judiciary Services Preparation",
+                "Human Rights Advocacy Certification",
+                "International Law Fellowship"
+            ],
+            "global": [
+                "GRE or GMAT for International Studies",
+                "IELTS or TOEFL for English Proficiency",
+                "CPA (Certified Public Accountant)",
+                "Global Fellowship Programs",
+                "Diploma in Cross-Cultural Studies"
+            ]
+        };
+
+        // Function to display courses based on field selection
+        function displayCourses() {
+            const field = document.getElementById("fieldSelect").value;
+            const coursesContainer = document.getElementById("coursesContainer");
+
+            coursesContainer.innerHTML = ""; // Clear previous content
+
+            if (field && courses[field]) {
+                const list = document.createElement("ul");
+                courses[field].forEach(course => {
+                    const listItem = document.createElement("li");
+                    listItem.textContent = course;
+                    list.appendChild(listItem);
+                });
+                coursesContainer.appendChild(list);
+            } else {
+                coursesContainer.innerHTML = "<p class='placeholder'>Please select a valid field to view courses.</p>";
+            }
+        }
+    </script>
+</body>
+</html>

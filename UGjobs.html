@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undergraduate Jobs: Government & Private Opportunities</title>
+    <style>
+        /* General Reset and Font Setup */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #3a6188;
+            color: #333;
+        }
+
+        /* Header Styling */
+        header {
+            text-align: center;
+            background-color: #042b50;
+            color: white;
+            padding: 40px 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+        }
+
+        /* Section for Job Categories */
+        .job-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .job-card {
+            background-color: #a18989;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .job-card:hover {
+            transform: scale(1.05);
+        }
+
+        .job-card h3 {
+            font-size: 1.8rem;
+            color: #02111d;
+            margin-bottom: 10px;
+        }
+
+        .job-card p {
+            font-size: 1rem;
+            color: #0a0303;
+            margin-bottom: 20px;
+        }
+
+        .job-card a {
+            background-color: #2b4458;
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .job-card a:hover {
+            background-color: #102b46;
+        }
+
+        /* Eligibility Section */
+        .eligibility-form {
+            text-align: center;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 50px;
+        }
+
+        .eligibility-form input {
+            padding: 12px;
+            font-size: 1.2rem;
+            width: 60%;
+            border: 2px solid #ccc;
+            border-radius: 4px;
+            outline: none;
+            margin-bottom: 20px;
+        }
+
+        .eligibility-form button {
+            background-color: #6d2222;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .eligibility-form button:hover {
+            background-color: #1976D2;
+        }
+
+        .eligibility-form p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #2196F3;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Undergraduate Jobs: Government & Private Opportunities</h1>
+        <p>Explore various career opportunities available for undergraduate candidates in both government and private sectors.</p>
+    </header>
+
+    <!-- Eligibility Section -->
+    <div class="eligibility-form">
+        <h2>Check Your Eligibility</h2>
+        <label for="age">Enter your age:</label>
+        <input type="number" id="age" placeholder="Enter your age" />
+        <button onclick="checkEligibility()">Check Eligibility</button>
+        <p id="eligibility-result"></p>
+    </div>
+
+    <!-- Job Opportunities Section -->
+    <div class="job-section">
+        <!-- Government Jobs Section -->
+        <div class="job-card">
+            <h3>Government Jobs</h3>
+            <p>For undergraduates, there are numerous government job opportunities in fields like SSC, RRB, Banking, Railways, and more.</p>
+            <a href="https://ssc.nic.in" target="_blank">Explore Government Jobs</a>
+        </div>
+
+        <!-- Private Jobs Section -->
+        <div class="job-card">
+            <h3>Private Sector Jobs</h3>
+            <p>Private sector companies offer roles in IT, BPO, customer service, sales, marketing, and more for undergraduates.</p>
+            <a href="https://www.naukri.com" target="_blank">Search Private Jobs</a>
+        </div>
+
+        <!-- Banking Jobs Section -->
+        <div class="job-card">
+            <h3>Banking Jobs</h3>
+            <p>Undergraduates can apply for roles in leading banks such as SBI, ICICI, HDFC as clerks, assistants, and more.</p>
+            <a href="https://www.sbi.co.in" target="_blank">Explore Banking Careers</a>
+        </div>
+
+        <!-- Teaching Jobs Section -->
+        <div class="job-card">
+            <h3>Teaching Jobs</h3>
+            <p>Opportunities in teaching at schools, coaching centers, and online tutoring platforms for undergraduates in various subjects.</p>
+            <a href="https://www.teacherjobs.com" target="_blank">Find Teaching Jobs</a>
+        </div>
+
+        <!-- IT Jobs Section -->
+        <div class="job-card">
+            <h3>IT & Software Jobs</h3>
+            <p>Undergraduates can explore roles like software developers, testers, web designers, and system administrators in the IT sector.</p>
+            <a href="https://www.indeed.com" target="_blank">Discover IT Jobs</a>
+        </div>
+
+        <!-- Marketing Jobs Section -->
+        <div class="job-card">
+            <h3>Marketing Jobs</h3>
+            <p>Work in marketing and sales positions for companies looking for undergraduates with good communication and analytical skills.</p>
+            <a href="https://www.amazon.in/jobs" target="_blank">Search Marketing Jobs</a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 | Designed by <a href="https://www.example.com" target="_blank">YourName</a></p>
+    </footer>
+
+    <script>
+        function checkEligibility() {
+            const age = document.getElementById('age').value;
+            const result = document.getElementById('eligibility-result');
+
+            if (age === '') {
+                result.textContent = "Please enter your age.";
+                result.style.color = "#d9534f";
+            } else if (age >= 18) {
+                result.textContent = "You are eligible for most jobs!";
+                result.style.color = "#5cb85c";
+            } else {
+                result.textContent = "You may not be eligible for all jobs, but there are still opportunities for you!";
+                result.style.color = "#f0ad4e";
+            }
+        }
+    </script>
+
+</body>
+</html>

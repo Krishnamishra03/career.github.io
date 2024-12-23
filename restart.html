@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restart Your Career</title>
+    <style>
+        header {
+    background-color: #4f46e5;
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    
+}
+.logo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.logo img {
+    height: 50px; /* Adjust as necessary */
+    width: auto;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.signup-btn {
+    background-color: #22c55e;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.signup-btn:hover {
+    background-color: #16a34a;
+}
+
+
+
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #706565;
+            color: #ffffff;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(90deg, #265c59, #449157);
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #fc1111;
+        }
+
+        .dynamic-text {
+            color: #ffffff;
+            font-size: 1.5rem;
+            animation: fade 3s infinite;
+        }
+
+        @keyframes fade {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        nav {
+            background: #222;
+            padding: 10px 20px;
+            text-align: center;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1rem;
+            padding: 8px 15px;
+            border: 2px solid #2ca71c;
+            border-radius: 5px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        nav a:hover {
+            background: #fff;
+            color: #ffffff;
+        }
+
+        .section {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #272525;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .section p, .section ul {
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #222;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 5px solid #f7f3f3;
+        }
+
+        ul li strong {
+            font-size: 1.2rem;
+        }
+
+        a.explore-link {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        a.explore-link:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #222;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        .contact-form {
+            margin-top: 20px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background: #333;
+            border: 1px solid #555;
+            border-radius: 5px;
+            color: #fff;
+            font-size: 1rem;
+        }
+
+        button {
+            display: block;
+            background: #fff;
+            color: #000;
+            font-size: 1rem;
+            padding: 10px 20px;
+            margin: 20px auto;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #ccc;
+        }
+    </style>
+</head>
+<body>
+<div class="h">
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <img src="https://media.istockphoto.com/id/1250007150/vector/emotional-intelligence-coaching-icon-teacher-sign-coach-symbol.jpg?s=612x612&w=0&k=20&c=UzOnbibU6V-Ldg9TT8uIEaQJuKukCKzeijrZ2JCYse0=" alt="Career Planning Logo">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="about.html">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="job.html">Jobs</a></li>
+                <li><a href="mentorship.html">Mentorship</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+                
+               
+                <li><button class="signup-btn" onclick="openSignupModal()">Sign up</button></li>
+            </ul>
+        </nav>
+    </header>
+</div>
+
+
+
+    <header>
+        <h1>Restart Your Career</h1>
+        <p class="dynamic-text">Find your path, explore new opportunities, and thrive.</p>
+    </header>
+    <nav>
+        <a href="#fields">Fields to Explore</a>
+        <a href="#steps">Steps to Restart</a>
+        <a href="#resources">Resources</a>
+       
+    </nav>
+
+    <div id="fields" class="section">
+        <h2>Fields to Explore</h2>
+        <ul>
+            <li><strong>Technology:</strong> Software Development, Data Science, IT Support</li>
+            <li><strong>Healthcare:</strong> Nursing, Medical Coding, Healthcare Administration</li>
+            <li><strong>Creative Arts:</strong> Graphic Design, Video Editing, Content Creation</li>
+            <li><strong>Business:</strong> Digital Marketing, Project Management, HR</li>
+            <li><strong>Trades:</strong> Electrician, Plumbing, Automotive Repair</li>
+            <li><strong>Green Energy:</strong> Solar Technician, Environmental Analyst</li>
+        </ul>
+        <a href="https://example.com/explore-guidance" target="_blank" class="explore-link">Explore More</a>
+    </div>
+
+    <div id="steps" class="section">
+        <h2>Steps to Restart Your Career</h2>
+        <ol>
+            <li>Reflect on your strengths, interests, and values.</li>
+            <li>Research industries and roles that align with your goals.</li>
+            <li>Develop new skills through online courses or certifications.</li>
+            <li>Update your resume and LinkedIn profile to highlight transferable skills.</li>
+            <li>Network with professionals and attend industry events.</li>
+            <li>Apply for internships, freelance projects, or entry-level roles to gain experience.</li>
+            <li>Continuously learn and adapt to industry trends.</li>
+        </ol>
+    </div>
+
+    <div id="resources" class="section">
+        <h2>Resources for Career Change</h2>
+        <ul>
+            <li><a href="https://www.linkedin.com/learning/" target="_blank">LinkedIn Learning</a> - Courses for skill development</li>
+            <li><a href="https://www.udemy.com/" target="_blank">Udemy</a> - Affordable online courses</li>
+            <li><a href="https://www.coursera.org/" target="_blank">Coursera</a> - Professional certificates</li>
+            <li><a href="https://www.indeed.com/" target="_blank">Indeed</a> - Job search platform</li>
+            <li><a href="https://www.glassdoor.com/" target="_blank">Glassdoor</a> - Company reviews and job listings</li>
+        </ul>
+    </div>
+
+   
+
+    <footer>
+        <p>&copy; 2024 Restart Your Career. All rights reserved.</p>
+    </footer>
+</body>
+</html>

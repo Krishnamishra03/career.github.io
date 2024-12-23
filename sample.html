@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Finder</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 0;
+      background-color: rgb(170, 194, 206);
+    }
+    h1 {
+      color: #333;
+    }
+    .job-options {
+      margin: 20px 0;
+    }
+    .result {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h1>Job Finder</h1>
+  <p>Select the type of job you're looking for:</p>
+  <div class="job-options">
+    <label for="education">Education Level:</label>
+    <select id="education">
+      <option value="10th">10th Pass</option>
+      <option value="12th">12th Pass</option>
+      <option value="undergraduate">Undergraduate</option>
+      <option value="postgraduate">Postgraduate</option>
+    </select>
+  </div>
+
+  <div class="job-options">
+    <label for="jobType">Job Type:</label>
+    <select id="jobType">
+      <option value="government">Government</option>
+      <option value="private">Private</option>
+    </select>
+  </div>
+
+  <button onclick="findJobs()">Find Jobs</button>
+
+  <div id="result" class="result" style="display: none;"></div>
+
+  <script>
+    function findJobs() {
+      const education = document.getElementById('education').value;
+      const jobType = document.getElementById('jobType').value;
+
+      let resultText = `You selected: ${education} Pass, ${jobType} job.`;
+
+      if (education === '10th' && jobType === 'government') {
+        resultText += " Examples: Police Constable, Peon, Clerk.";
+      } else if (education === '10th' && jobType === 'private') {
+        resultText += " Examples: Retail Staff, Delivery Agent.";
+      } else if (education === '12th' && jobType === 'government') {
+        resultText += " Examples: Data Entry Operator, Postal Assistant.";
+      } else if (education === '12th' && jobType === 'private') {
+        resultText += " Examples: Sales Associate, Customer Support.";
+      } else if (education === 'undergraduate' && jobType === 'government') {
+        resultText += " Examples: Junior Engineer, Assistant Manager.";
+      } else if (education === 'undergraduate' && jobType === 'private') {
+        resultText += " Examples: Software Developer, Marketing Executive.";
+      } else if (education === 'postgraduate' && jobType === 'government') {
+        resultText += " Examples: Lecturer, Research Scientist.";
+      } else if (education === 'postgraduate' && jobType === 'private') {
+        resultText += " Examples: Data Scientist, Senior Manager.";
+      }
+
+      const resultDiv = document.getElementById('result');
+      resultDiv.innerText = resultText;
+      resultDiv.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
